@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <style>
+            .fieldset {background:lightyellow;border:10px solid yellow;margin-bottom:10px;width:720px}
+            .label {width:180px;display:inline-block;right-align;top-align}
+        </style>
+    </head>
+    <h1>Please Enter Your Details For Our Dating Website!</h1>
+    <form method="post" enctype="multipart/form-data"
+            action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+        <fieldset class="fieldset">
+            <legend>Your Face</legend>
+            <label for="avatar">Your image:</label>
+            <input type="file" id="avatar" name="avatar" required>
+            <br>
+            <label for="preview">Image preview:</label>
+            <img id="preview">
+        </fieldset>
+        <br>
+
+        <fieldset class="fieldset">
+            <legend>Your General Details</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Full name" required>
+            <br>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="gender" name="gender" value="male" required>Male
+            <input type="radio" id="gender" name="gender" value="female" >Female
+            <br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="18" required>
+            <br>
+            <label for="birth">Date of birth:</label>
+            <input type="date" id="birth" name="dateofbirth">
+            <br>
+            <label for="color">Favorite color:</label>
+            <input type="color" id="color" name="favoritecolor">
+            <br>
+            <label for="country">Which country</label>
+            <select id="country" name="country">
+                <option value="none">no selection</option>
+                <option value="hk">Hong Kong</option>
+                <option value="vc">Vancouver</option>
+                <option value="sf">San Francisco</option>
+                <option value="bj">Bei Jing</option>
+                <option value="NY">New York</option>
+            </select>
+        </fieldset>
+        <br>
+
+        <fieldset class="fieldset">
+            <legend>Your Indicator</legend>
+            <label for="height">Height:</label>
+            Short<input type="range" min="0" max="100" id="height" name="height">Tail
+            <br>
+            <label for="salary">Salary:</label>
+            Poor<input type="range" min="0" max="100" id="salary" name="salary">Rich
+        </fieldset>
+        <br>
+
+        <fieldset class="fieldset">
+            <legend>Your Contact Information</legend>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile">
+            <br>
+            <label for="address">Address</label>
+            <textarea name="address"></textarea>
+            <br>
+            <label for="contact">Method to contact you</label>
+            <input type="checkbox" id="contact" name="methodtocontactyou" value="email">Email
+            <input type="checkbox" id="contact" name="methodtocontactyou" value="whatsapp">Whatsapp
+            <input type="checkbox" id="contact" name="methodtocontactyou" value="in-appchat">In-app chat
+        </fieldset>
+        <br>
+
+        <input type="submit" value="submit">
+    </form>
+</html>
