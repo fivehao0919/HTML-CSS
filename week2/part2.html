@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        var finished = false;
+        var count = 0;
+        var colors = ["Yellow", "Tan", "Sienna", "Plum", "Pink", "Maroon",
+        "Lime", "Gold", "DimGray"];
+        var target_index;
+        var target;
+        var guess_input;
+        var myBody;
+
+        function do_game() {
+            target_index = Math.random() * colors.length;
+            target_index = Math.floor( target_index );
+            target = colors[target_index];
+            alert("The answer is: " + target);
+
+            while (!finished) {
+                guess_input = prompt("I am thinking of one of there color:\n\n"+ colors.sort() +
+                "\n\nWhat color am I thinking of?");
+                count += 1;
+                finished = check_guess();
+            }
+        }
+
+        function check_guess() {
+            if (colors.indexOf(guess_input) == -1) {
+                alert("Sorry, I don't recognize your color.\n\nPlease try again.");
+                return false;
+            }
+            else if (guess_input > target) {
+                alert("Sorry, your guess is not correct!\n\nHint: your color is alphabetically highter than mine.\n\nPlease try again.");
+                return false;
+            }
+            else if (guess_input < target) {
+                alert("Sorry, your guess is not correct!\n\nHint: your color is alphabetically lower than mine.\n\nPlease try again.");
+                return false;
+            }
+            else {
+                myBody=document.getElementsByTagName("body")[0];
+                myBody.style.background=target;
+                setTimeout(function(){
+                    alert("Congratulations! You have guessed the color!\n\nIt took you" + count + " guesses to finish the game!\n\nYou can see the colour in the background.");
+                },0)
+                //alert("Congratulations! You have guessed the color!\n\nIt took you" + count + " guesses to finish the game!\n\nYou can see the colour in the background.");
+                return true;
+                //}
+            }
+        }
+    </script>
+</head>
+<body onload="do_game()">
+</body>
+</html>

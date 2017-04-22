@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
+    <script type="text/javascript">
         var finished = false;
         var count = 0;
         var colors = ["Yellow", "Tan", "Sienna", "Plum", "Pink", "Maroon",
@@ -14,19 +14,15 @@
             target_index = Math.random() * colors.length;
             target_index = Math.floor( target_index );
             target = colors[target_index];
-            alert(target);
+            alert("The answer is: " + target);
             while (!finished) {
-                guess_input = prompt("I am thinking of one of there color:\n\n"+ colors +
+                guess_input = prompt("I am thinking of one of there color:\n\n"+ colors.sort() +
                 "\n\nWhat color am I thinking of?");
                 count += 1;
                 if (guess_input == target)
                     finished = true;
             }
-            myBody=document.getElementsByTagName("body")[0];
-            myBody.style.background=target;
-            alert("Congratulations! You have guessed the color!\n\nIt took you" + count + " guesses to finish the game!\n\nYou can see the colour in the background.");
         }
-
     </script>
 </head>
 <body onload="do_game()">
