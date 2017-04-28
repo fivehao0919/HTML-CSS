@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        img {position:absolute}
+        div {position:absolute; width:500px; height:500px}
+        #rightSide { left: 500px; border-left: 1px solid black}
+        </style>
+        <script>
+        var numberOfFaces = 5;
+        var theLeftSide = document.getElementById("leftSide");
+        var generateCount = 0;
+        function generateFaces() {
+            while (generateCount <= numberOfFaces) {
+                var newImg = document.createElement("img");
+                var newImg.src = "smile.png";
+                var theLeftSide.appendChild(newImg);
+                generateCount += 1;
+            }
+        }
+        </script>
+    </head>
+    <body onload="generateFaces()">
+    <h1>Matching Game</h1>
+    <p>Click on the extra smiling face on the left.</p>
+        <div id="leftSide"></div>
+        <div id="rightSide"></div>
+    </body>
+</html>
