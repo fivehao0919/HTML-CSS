@@ -65,11 +65,11 @@
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Full name" required>
             <br>
-            <label for="gender">Gender:</label>
-            <input type="radio" id="gender" name="gender" value="male" required>
-            <label>Male</label>
-            <input type="radio" id="gender" name="gender" value="female">
-            <label>Female</label>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
             <br>
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" value="18" required>
@@ -115,15 +115,15 @@
             <input type="tel" id="mobile" name="mobile">
             <br>
             <label for="address">Address</label>
-            <textarea name="address"></textarea>
+            <textarea name="address" id="address"></textarea>
             <br>
             <label for="contact">Method to contact you</label>
-            <input type="checkbox" id="contact" name="methodtocontactyou" value="email">
-            <label>Email</label>
-            <input type="checkbox" id="contact" name="methodtocontactyou" value="whatsapp">
-            <label>Whatsapp</label>
-            <input type="checkbox" id="contact" name="methodtocontactyou" value="in-appchat">
-            <label>In-app chat</label>
+            <input type="checkbox" id="checkbox_email" name="methodtocontactyou" value="email">
+            <label for="checkbox_email">Email</label>
+            <input type="checkbox" id="whatsapp" name="methodtocontactyou" value="whatsapp">
+            <label for="whatsapp">Whatsapp</label>
+            <input type="checkbox" id="in_app" name="methodtocontactyou" value="in-appchat">
+            <label for="in_app">In-app chat</label>
         </fieldset>
         <br>
 

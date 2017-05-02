@@ -11,6 +11,8 @@
                 var numberOfFaces = 5;
                 var generateCount = 0;
                 var theLeftSide = document.getElementById("leftSide");
+                var theRightSide = document.getElementById("rightSide");
+
                 while (generateCount < numberOfFaces) {
                     var top,left;
                     top = Math.random() * 401;
@@ -24,9 +26,14 @@
                     newImg.id = "img" + generateCount;
                     theLeftSide.appendChild(newImg);
                     var theImg = document.getElementById("img" + generateCount);
-                    theImg.setAttribute("style", "top: " + top + "px;left: " + left +"px");
+                    theImg.setAttribute("style", "top: " + top + "px;left: " + left + "px");
                     generateCount += 1;
                 }
+
+                leftSideImages = theLeftSide.cloneNode(true);
+                theLeftSide.removeChild(theLeftSide.lastChild);
+                document.getElementById("rightSide").appendChild(leftSideImages);
+
             }
         </script>
     </head>
