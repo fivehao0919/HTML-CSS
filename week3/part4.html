@@ -10,6 +10,7 @@
             var numberOfFaces = 5;
             var generateCount = 0;
             var theLeftSide,theRightSide;
+            var theBody = document.getElementsByTagName("body")[0];
             function generateFaces() {
                 theLeftSide = document.getElementById("leftSide");
                 theRightSide = document.getElementById("rightSide");
@@ -30,22 +31,29 @@
                     theImg.setAttribute("style", "top: " + top + "px;left: " + left + "px");
                     generateCount += 1;
                 }
-
                 leftSideImages = theLeftSide.cloneNode(true);
-                theLeftSide.removeChild(theLeftSide.lastChild);
+                leftSideImages.removeChild(leftSideImages.lastChild);
                 document.getElementById("rightSide").appendChild(leftSideImages);
+                theBody = document.getElementsByTagName("body")[0];
 
-                var theBody = document.getElementsByTagName("body")[0];
-            }
-            theLeftSide.lastChild.onclick=
-                function nextLevel(event) {
+                theLeftSide.lastChild.onclick = function nextLevel(event) {
                     event.stopPropagation();
                     numberOfFaces += 5;
+                    generateCount = 0;
+                    while (theLeftSide.firstChild) theLeftSide.removeChild(theLeftSide.firstChild);
+                    while (theRightSide.firstChild) theRightSide.removeChild(theRightSide.firstChild);
                     generateFaces();
+                    console.log(numberOfFaces);
                 }
+                theBody.onclick = function gameOver() {
+                    alert("Game Over!");
+                    theBody.onclick = null;
+                    theLeftSide.lastChild.onclick = null;
+                }
+            }
         </script>
     </head>
-    <body onload="generateFaces()">
+    <body onload="generateFaces()" >
     <h1>Matching Game</h1>
     <p>Click on the extra smiling face on the left.</p>
         <div id="leftSide">
