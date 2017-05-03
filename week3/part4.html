@@ -9,8 +9,7 @@
         <script>
             var numberOfFaces = 5;
             var generateCount = 0;
-            var theLeftSide,theRightSide;
-            var theBody = document.getElementsByTagName("body")[0];
+            var theLeftSide,theRightSide,theBody;
             function generateFaces() {
                 theLeftSide = document.getElementById("leftSide");
                 theRightSide = document.getElementById("rightSide");
@@ -24,14 +23,14 @@
                     //console.log(top,left);
 
                     var newImg = document.createElement("img");
-                    newImg.src = "smile.png";
+                    newImg.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
                     newImg.id = "img" + generateCount;
                     theLeftSide.appendChild(newImg);
                     var theImg = document.getElementById("img" + generateCount);
                     theImg.setAttribute("style", "top: " + top + "px;left: " + left + "px");
                     generateCount += 1;
                 }
-                leftSideImages = theLeftSide.cloneNode(true);
+                var leftSideImages = theLeftSide.cloneNode(true);
                 leftSideImages.removeChild(leftSideImages.lastChild);
                 document.getElementById("rightSide").appendChild(leftSideImages);
                 theBody = document.getElementsByTagName("body")[0];
@@ -43,7 +42,7 @@
                     while (theLeftSide.firstChild) theLeftSide.removeChild(theLeftSide.firstChild);
                     while (theRightSide.firstChild) theRightSide.removeChild(theRightSide.firstChild);
                     generateFaces();
-                    console.log(numberOfFaces);
+                    //console.log(numberOfFaces);
                 }
                 theBody.onclick = function gameOver() {
                     alert("Game Over!");

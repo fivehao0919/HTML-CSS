@@ -7,10 +7,13 @@
         #rightSide { left: 500px; border-left: 1px solid black}
         </style>
         <script>
+            var numberOfFaces = 5;
+            var generateCount = 0;
+            var theLeftSide;
             function generateFaces() {
-                var numberOfFaces = 5;
-                var generateCount = 0;
-                var theLeftSide = document.getElementById("leftSide");
+                numberOfFaces = 5;
+                generateCount = 0;
+                theLeftSide = document.getElementById("leftSide");
                 while (generateCount < numberOfFaces) {
                     var top,left;
                     top = Math.random() * 401;
@@ -20,7 +23,7 @@
                     //console.log(top,left);
 
                     var newImg = document.createElement("img");
-                    newImg.src = "smile.png";
+                    newImg.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
                     newImg.id = "img" + generateCount;
                     theLeftSide.appendChild(newImg);
                     var theImg = document.getElementById("img" + generateCount);
