@@ -7,11 +7,12 @@
         #rightSide { left: 500px; border-left: 1px solid black}
         </style>
         <script>
+            var numberOfFaces = 5;
+            var generateCount = 0;
+            var theLeftSide,theRightSide;
             function generateFaces() {
-                var numberOfFaces = 5;
-                var generateCount = 0;
-                var theLeftSide = document.getElementById("leftSide");
-                var theRightSide = document.getElementById("rightSide");
+                theLeftSide = document.getElementById("leftSide");
+                theRightSide = document.getElementById("rightSide");
 
                 while (generateCount < numberOfFaces) {
                     var top,left;
@@ -34,7 +35,14 @@
                 theLeftSide.removeChild(theLeftSide.lastChild);
                 document.getElementById("rightSide").appendChild(leftSideImages);
 
+                var theBody = document.getElementsByTagName("body")[0];
             }
+            theLeftSide.lastChild.onclick=
+                function nextLevel(event) {
+                    event.stopPropagation();
+                    numberOfFaces += 5;
+                    generateFaces();
+                }
         </script>
     </head>
     <body onload="generateFaces()">
